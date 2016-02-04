@@ -3,7 +3,7 @@ define('DBN','mysql:host=127.0.0.1;port=3308;dbname=704_2015_11_imura');
 define('NAME','703');
 define('PASS','@Pass2222');
 $dbh=new PDO(DBN,NAME,PASS);
-$stmt=$dbh->query('SELECT * FROM posts');
+$stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC LIMIT 10');
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ $stmt=$dbh->query('SELECT * FROM posts');
                       <ul>
                       <?php
                       	foreach($stmt as $post){
-                      		echo '<li>'.$post['title'].'</li>';
+                      		echo '<li>'.$post['title'].'-----'.$post['new_date'].'</li>';
                       	
                       	}
                       ?>
