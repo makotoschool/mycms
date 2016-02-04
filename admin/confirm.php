@@ -1,7 +1,10 @@
 <?php
+session_start();
 require_once(__DIR__.'/lib/functions.php');
 $title=h($_POST['title']);
 $content=strip_tags(nl2br($_POST['content']),'<br>');
+$_SESSION['post']['title']=$title;
+$_SESSION['post']['content']=$content;
 
 ?>
 <!DOCTYPE html>
@@ -21,6 +24,7 @@ $content=strip_tags(nl2br($_POST['content']),'<br>');
        <h3>本文</h3>
        <p><?php echo $content; ?></p>
        <button onClick="history.back();">戻る</button>
+       <button onClick="location.href='post.php'">投稿</botton>
 
         
     </div>
