@@ -3,8 +3,11 @@ session_start();
 $title=$_SESSION['post']['title'];
 $content=$_SESSION['post']['content'];
 require_once(__DIR__.'/../lib/dbh.php');
-$stmt=$dbh->prepare('INSERT INTO posts(new_date,title,content) VALUES (now(),? ,? )');
-$stmt->execute(array($title,$content));
+$stmt=$dbh->prepare('INSERT INTO posts(new_date,title,content) VALUES (now(),:title ,:content )');
+$stmt->execute(array(
+				'title'=>$title,
+				'content'=>$content
+				));
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +21,7 @@ $stmt->execute(array($title,$content));
     <h1 class="maintitle">投稿管理画面</h1>
     <div class="content">
        <h2 class="subtitle">投稿完了しました</h2>
+       <button onClick="location.href='index.php';">管理画面トップに戻る</button>
  
 
         

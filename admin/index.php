@@ -1,3 +1,9 @@
+<?php
+require_once(__DIR__.'/../lib/dbh.php');
+$stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC');
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,8 +41,10 @@
                 <th width="55%">本文</th>
                 <th width="10%">編集内容</th>                
             </tr>
+            <?php foreach():?>
             
             
+            <?php endforeach; ?>
         </table>
     </div>
     
