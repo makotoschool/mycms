@@ -47,7 +47,7 @@ $stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC');
     			<td><?php echo $post['new_date']; ?></td>
     			<td><?php echo $post['title']; ?></td>
             	<td><?php echo $post['content']; ?></td>
-            	<td></td>
+            	<td><a href="delete.php?id=<?php echo $post['id']; ?>">削除する</a></td>
         	</tr>    
     		<?php endforeach; ?>
             
