@@ -41,13 +41,19 @@ $stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC');
                 <th width="55%">本文</th>
                 <th width="10%">編集内容</th>                
             </tr>
-            <?php foreach():?>
+            <?php foreach($stmt as $post): ?>
+    		<tr>
+    			<td><?php echo $post['id']; ?></td>
+    			<td><?php echo $post['new_date']; ?></td>
+    			<td><?php echo $post['title']; ?></td>
+            	<td><?php echo $post['content']; ?></td>
+            	<td></td>
+        	</tr>    
+    		<?php endforeach; ?>
             
-            
-            <?php endforeach; ?>
         </table>
     </div>
-    
+
             
 </div>
 </body>
