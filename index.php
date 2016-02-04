@@ -3,7 +3,7 @@ define('DBN','mysql:host=127.0.0.1;port=3308;dbname=704_2015_11_imura');
 define('NAME','703');
 define('PASS','@Pass2222');
 $dbh=new PDO(DBN,NAME,PASS);
-echo '接続成功！！！';
+$stmt=$dbh->query('SELECT * FROM posts');
 
 ?>
 <!DOCTYPE html>
@@ -58,7 +58,14 @@ echo '接続成功！！！';
                 <article class="content_sentence">
                     <h2 class="mid padding20">NEWS</h2>
                     <div class="news">
-                        
+                      <ul>
+                      <?php
+                      	foreach($stmt as $post){
+                      		echo '<li>'.$post['title'].'</li>';
+                      	
+                      	}
+                      ?>
+                      </ul>  
                     </div>
                 </article>
 				<article class="content_sentence">
