@@ -1,10 +1,7 @@
 <?php
-define('DBN','mysql:host=127.0.0.1;port=3308;dbname=704_2015_11_imura');
-define('NAME','703');
-define('PASS','@Pass2222');
-$dbh=new PDO(DBN,NAME,PASS);
+require_once(__DIR__.'/lib/dbh.php');
 $stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC LIMIT 10');
-
+$dbh=null;
 ?>
 <!DOCTYPE html>
 <!--
@@ -15,7 +12,7 @@ $stmt=$dbh->query('SELECT * FROM posts ORDER BY new_date DESC LIMIT 10');
 <html>
 <head>
 <meta charset="UTF-8">
-<title>TOP|○○Design</title>
+<title>mycms</title>
 <link type="text/css" rel="stylesheet" href="css/main.css">
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="js/main.js"></script>
