@@ -29,4 +29,13 @@ var nav_height=$('#nav').innerHeight();
         $('body,html').animate({scrollTop:'0px'},1000,'swing');
     
     });//END gotop click
+
+
+$('#newslist li').css('opacity',0);
+$('#newslist li').each(function(i){
+		$(this).delay(300*i).animate({opacity:1},300);
+});    
+    
+    
+    
 });//End Jquery

@@ -55,7 +55,7 @@ $dbh=null;
                 <article class="content_sentence">
                     <h2 class="mid padding20">NEWS</h2>
                     <div class="news">
-                      <ul>
+                      <ul id="newslist">
                       <?php foreach($stmt as $post):?>
                       		<li><?php echo $post['title']; ?>-----<?php echo $post['new_date']; ?></li>
                       	
